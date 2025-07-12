@@ -7,7 +7,7 @@ import FeaturedCategories from "@/components/featured-categories"
 import ExpertCredibility from "@/components/expert-credibility"
 import RecipeBlog from "@/components/recipe-blog"
 import TrustProof from "@/components/trust-proof"
-import Newsletter from "@/components/newsletter"
+
 import Footer from "@/components/footer"
 import ProductCards from "@/components/product-cards"
 import SweetReward from "@/components/sweet-reward"
@@ -30,7 +30,6 @@ export default function HomePage() {
         <BrandMission />
         <RecipeBlog />
         <TrustProof />
-        <Newsletter />
         {/* Subscribe Section */}
         <section className="mb-16">
           <div className="container mx-auto px-4">
