@@ -63,7 +63,7 @@ export default function HeroCarousel() {
   }
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ aspectRatio: '16/5' }}>
+    <section className="relative min-h-[500px] w-full flex items-center justify-center overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -74,10 +74,8 @@ export default function HeroCarousel() {
         >
           {/* Background Image */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url('${slide.image}')`,
-            }}
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('${slide.image}')` }}
           />
 
           {/* Geometric Pattern Overlay */}
@@ -88,23 +86,23 @@ export default function HeroCarousel() {
           </div>
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/40" />
 
           {/* Content */}
-          <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="text-center text-white max-w-4xl mx-auto px-4">
-              <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{slide.title}</h1>
-              <p className="text-base md:text-lg mb-6 font-medium">{slide.subtitle}</p>
+          <div className="relative z-10 w-full h-full flex flex-col justify-center items-center px-2">
+            <div className="text-center text-white max-w-4xl mx-auto w-full">
+              <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 leading-tight">{slide.title}</h1>
+              <p className="text-base sm:text-lg md:text-2xl mb-6 font-medium">{slide.subtitle}</p>
               {slide.promo && (
                 <div className="mb-6">
-                  <span className="bg-turquoise-500 text-white px-4 py-2 rounded-full text-lg font-bold">
+                  <span className="bg-turquoise-500 text-white px-4 py-2 rounded-full text-base sm:text-lg font-bold">
                     {slide.promo}
                   </span>
                 </div>
               )}
               {/* Trust Badges - only show on first slide */}
               {index === 0 && (
-                <div className="flex flex-wrap justify-center gap-6 text-sm mb-12">
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm mb-8 sm:mb-12">
                   <div className="flex items-center space-x-2">
                     <span className="w-6 h-6 bg-turquoise-500 rounded-full flex items-center justify-center text-xs">
                       ✓
@@ -127,14 +125,13 @@ export default function HeroCarousel() {
               )}
             </div>
             {/* Move buttons to lower right */}
-            <div className="absolute bottom-8 right-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-turquoise-500 hover:bg-turquoise-600 text-lg px-8 py-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center mt-4">
+              <Button className="bg-turquoise-500 hover:bg-turquoise-600 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-3 md:text-lg">
                 {slide.cta}
               </Button>
               <Button
-                size="lg"
                 variant="outline"
-                className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 bg-transparent"
+                className="text-white border-white hover:bg-white hover:text-gray-900 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-3 md:text-lg bg-transparent"
               >
                 {slide.secondaryCta}
               </Button>
@@ -142,25 +139,6 @@ export default function HeroCarousel() {
           </div>
         </div>
       ))}
-
-      {/* Navigation Arrows */}
-      <Button
-        variant="outline"
-        size="sm"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 z-20"
-        onClick={prevSlide}
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </Button>
-
-      <Button
-        variant="outline"
-        size="sm"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 z-20"
-        onClick={nextSlide}
-      >
-        <ChevronRight className="w-5 h-5" />
-      </Button>
 
       {/* Slide Indicators */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
