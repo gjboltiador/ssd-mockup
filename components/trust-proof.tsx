@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { Star, ChevronLeft, ChevronRight, ShieldCheck, Flag, Award, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function TrustProof() {
@@ -32,10 +32,10 @@ export default function TrustProof() {
   ]
 
   const certifications = [
-    { name: "HACCP Certified", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "Australian Made", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "GMP Certified", logo: "/placeholder.svg?height=60&width=120" },
-    { name: "TGA Approved", logo: "/placeholder.svg?height=60&width=120" },
+    { name: "HACCP Certified", icon: ShieldCheck },
+    { name: "Australian Made", icon: Flag },
+    { name: "GMP Certified", icon: Award },
+    { name: "TGA Approved", icon: CheckCircle },
   ]
 
   useEffect(() => {
@@ -119,8 +119,9 @@ export default function TrustProof() {
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Trusted & Certified</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
             {certifications.map((cert, index) => (
-              <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300">
-                <img src={cert.logo || "/placeholder.svg"} alt={cert.name} className="h-12 w-auto" />
+              <div key={index} className="flex flex-col items-center">
+                <cert.icon className="h-12 w-12 text-turquoise-500 mb-2" />
+                <span className="text-base font-semibold text-gray-900 mt-2">{cert.name}</span>
               </div>
             ))}
           </div>

@@ -95,6 +95,7 @@ const config: Config = {
           800: "#007d83",
           900: "#005d61",
         },
+        chocolate: '#704129',
       },
       borderRadius: {
         lg: "var(--radius)",
